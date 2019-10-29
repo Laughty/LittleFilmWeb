@@ -1,4 +1,7 @@
 #import "SceneDelegate.h"
+#import "MovieListTableViewController.h"
+#import "NativeRestService.h"
+#import "MovieListViewModel.h"
 
 @interface SceneDelegate ()
 
@@ -8,9 +11,20 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-    // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-    // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
+    NativeRestService* service = [[NativeRestService alloc] init];
+
+
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    UINavigationController* initialViewController = [storyboard instantiateInitialViewController];
+    MovieListTableViewController *viewController = initialViewController.viewControllers.firstObject;
+    viewController.viewModel = [[MovieListViewModel alloc] initWithService:service];
+
+    self.window.rootViewController = initialViewController;
+    [self.window makeKeyAndVisible];
+
 }
 
 
