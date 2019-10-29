@@ -14,7 +14,7 @@
 -(void) searchWithQuery:(NSString *)searchQuery success:(void (^)(NSArray*))results failure:(void (^)(NSString*))failure {
 
     NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString: @"https://api.themoviedb.org/3/"]
+    [[session dataTaskWithURL:[NSURL URLWithString: kBASEUrl]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
@@ -30,8 +30,11 @@
 }
 -(void) fetchMovie:(NSString *)movieId success:(void (^)(MovieDetails*))results failure:(void (^)(NSString*))failure {
 
-    NSString* urlString = [[NSString alloc] initWithFormat:@"https://api.themoviedb.org/3/movie/%@", movieId];
-    urlString = [urlString stringByAppendingString:@"?api_key=42fac1217ce98cc1cabcc54c3daf250e&language=en-US"];
+
+    NSString* urlString = kBASEUrl;
+    urlString = [urlString stringByAppendingFormat:@"movie/%@", movieId];
+    urlString = [urlString stringByAppendingString:kDEFAULTRequestParams];
+
 
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[NSURL URLWithString:urlString]
@@ -46,7 +49,10 @@
             NSError *jsonError;
             id allKeys = [NSJSONSerialization JSONObjectWithData:data options:NSJSONWritingPrettyPrinted error:&jsonError];
 
-            MovieDetails* movieDetails = [[MovieDetails alloc] initWithName:allKeys[@"original_title"] shortDescription:allKeys[@"overview"] imageURL:[NSURL URLWithString:@"https://i0.wp.com/www.adventuresportsnetwork.com/wp-content/uploads/2013/09/cookiemonster.jpeg?w=620&ssl=1"] releaseDate:allKeys[@"release_date"] rating: allKeys[@"vote_average"] movieId: allKeys[@"id"]];
+            MovieDetails* movieDetails = [[MovieDetails alloc] initWithName:allKeys[@"original_title"]
+                                                           shortDescription:allKeys[@"overview"]
+                                                                   imageURL:[NSURL URLWithString:@"https://i0.wp.com/www.adventuresportsnetwork.com/wp-content/uploads/2013/09/cookiemonster.jpeg?w=620&ssl=1"]
+                                                                releaseDate:allKeys[@"release_date"] rating: allKeys[@"vote_average"] movieId: allKeys[@"id"]];
             results(movieDetails);
         }
 
@@ -57,8 +63,13 @@
 
 -(void) fetchMostPopularWithSuccess:(void (^)(NSArray*))results failure:(void (^)(NSString*))failure {
 
+    NSString* urlString = kBASEUrl;
+    urlString = [urlString stringByAppendingString:@"movie/now_playing"];
+    urlString = [urlString stringByAppendingString:kDEFAULTRequestParams];
+    urlString = [urlString stringByAppendingString: @"&page=1"];
+
     NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=42fac1217ce98cc1cabcc54c3daf250e&language=en-US&page=1"]
+    [[session dataTaskWithURL:[NSURL URLWithString:urlString]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {

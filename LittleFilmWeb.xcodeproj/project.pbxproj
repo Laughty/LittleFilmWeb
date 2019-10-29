@@ -14,6 +14,7 @@
 		572665C823639908002D3B05 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572665C723639908002D3B05 /* MovieDetailsViewController.m */; };
 		5726A0872366CE11002D3B05 /* MovieItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726A0852366CE11002D3B05 /* MovieItemTableViewCell.m */; };
 		5726A0882366CE11002D3B05 /* MovieItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5726A0862366CE11002D3B05 /* MovieItemTableViewCell.xib */; };
+		57367035236841A600F68CC9 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 57367034236841A600F68CC9 /* Constants.m */; };
 		574B3D63235FA66A008442CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 574B3D62235FA66A008442CE /* AppDelegate.m */; };
 		574B3D66235FA66A008442CE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 574B3D65235FA66A008442CE /* SceneDelegate.m */; };
 		574B3D6C235FA66A008442CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574B3D6A235FA66A008442CE /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		572665B823635F27002D3B05 /* Movies.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movies.m; sourceTree = "<group>"; };
 		572665BA23635F3C002D3B05 /* MovieDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetails.h; sourceTree = "<group>"; };
 		572665BB23635F3C002D3B05 /* MovieDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetails.m; sourceTree = "<group>"; };
-		572665BD23636FEA002D3B05 /* Constans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constans.h; sourceTree = "<group>"; };
 		572665C02363750D002D3B05 /* AbstractService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbstractService.h; sourceTree = "<group>"; };
 		572665C12363750D002D3B05 /* AbstractService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbstractService.m; sourceTree = "<group>"; };
 		572665C3236379AA002D3B05 /* MovieListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieListTableViewController.h; sourceTree = "<group>"; };
@@ -40,6 +40,8 @@
 		5726A0842366CE11002D3B05 /* MovieItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieItemTableViewCell.h; sourceTree = "<group>"; };
 		5726A0852366CE11002D3B05 /* MovieItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieItemTableViewCell.m; sourceTree = "<group>"; };
 		5726A0862366CE11002D3B05 /* MovieItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieItemTableViewCell.xib; sourceTree = "<group>"; };
+		57367034236841A600F68CC9 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		57367036236841B900F68CC9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		574B3D5E235FA66A008442CE /* LittleFilmWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleFilmWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574B3D61235FA66A008442CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		574B3D62235FA66A008442CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -111,7 +113,8 @@
 				574B3D6F235FA66D008442CE /* LaunchScreen.storyboard */,
 				574B3D72235FA66D008442CE /* Info.plist */,
 				574B3D73235FA66D008442CE /* main.m */,
-				572665BD23636FEA002D3B05 /* Constans.h */,
+				57367034236841A600F68CC9 /* Constants.m */,
+				57367036236841B900F68CC9 /* Constants.h */,
 			);
 			path = LittleFilmWeb;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				572665B923635F27002D3B05 /* Movies.m in Sources */,
 				572665C22363750D002D3B05 /* AbstractService.m in Sources */,
 				5726A0872366CE11002D3B05 /* MovieItemTableViewCell.m in Sources */,
+				57367035236841A600F68CC9 /* Constants.m in Sources */,
 				572665C5236379AA002D3B05 /* MovieListTableViewController.m in Sources */,
 				574B3D66235FA66A008442CE /* SceneDelegate.m in Sources */,
 			);

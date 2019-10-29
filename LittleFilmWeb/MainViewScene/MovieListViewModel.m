@@ -17,14 +17,13 @@
 
 @implementation MovieListViewModel
 
-
 - (instancetype)initWithService:(AbstractService *)service {
     self = [super init];
     if (!self) return nil;
 
     self.service = service;
     self.userDefaults = [NSUserDefaults standardUserDefaults];
-    self.favorites = [self.userDefaults arrayForKey: @"standardUserData"];
+    self.favorites = [self.userDefaults arrayForKey: kCURRENTUserDataKey];
 
     return self;
 }
@@ -66,7 +65,7 @@
     MovieDetails* selectedMovie = [_movies objectAtIndex:indexPath.row];
     NSMutableArray* newFavoritesMovies = [[NSMutableArray alloc]
                                           initWithArray:[self.userDefaults
-                                                         arrayForKey: @"standardUserData"]];
+                                                         arrayForKey: kCURRENTUserDataKey]];
     if (isFavorite) {
         [newFavoritesMovies addObject:selectedMovie.movieId];
     } else {
@@ -78,7 +77,7 @@
         }
     }
     _favorites = [[NSArray alloc] initWithArray:newFavoritesMovies];
-    [self.userDefaults setObject: self.favorites forKey: @"standardUserData"];
+    [self.userDefaults setObject: self.favorites forKey: kCURRENTUserDataKey];
 
 };
 
